@@ -4,7 +4,7 @@ function setup() {
 }
 let prev = -1
 function draw() {
-	background('#000000');
+	background('#04080f');
 	textSize(32);
 	fill(180);
 	text(hour(), 10, 30);
@@ -12,7 +12,7 @@ function draw() {
 	text(minute(), 10, 60);
 	fill(50);
 	text(second(), 10, 90);
-    let dir = -1;
+    let dir = 1;
     let t = minute();
     if (t !== prev){
       console.log(t);
