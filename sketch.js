@@ -17,7 +17,7 @@ function draw() {
     if (t !== prev){
       console.log(t);
       prev = minute();
-      dir = - dir;
+//       dir = - dir;
     }
   
     let v = createVector(width/2, height/2);
@@ -47,7 +47,7 @@ function draw() {
     
     let hfrac = 1.25/6
     let hr = createVector(hfrac * width/2 , hfrac * height/2);
-    for (i=0;i<hour()+23;i++){
+    for (i=0;i<hour();i++){
       let eps = i * PI / 3600;
       let m = millis()/(36000*1.3);
       let angle =  dir*(eps + m);
