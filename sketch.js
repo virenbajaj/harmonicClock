@@ -19,7 +19,6 @@ function draw() {
   let min_60_rad_ratio = 2.9/6;
   
   let hr_rad_ratio = .7/6;
-  let dir = 1
   
   background(bg_color);
 
@@ -44,7 +43,7 @@ function draw() {
   createComponent('hr',center,hr_rad_ratio,hr_speed_divider,hr_color,hr_size);
   
   //create minutes 
-  let min_speed_divider = 1.3;
+  let min_speed_divider = -1.3;
   let min_size = 20;
   createComponent('min15',center,min_15_rad_ratio,min_speed_divider,min_color,min_size);
   createComponent('min30',center,min_30_rad_ratio,min_speed_divider,min_color,min_size);
@@ -117,14 +116,3 @@ function drawball(v,r,c,d){
   
 }
 
-function drawmins(v,r,c,d,m){
-  push();
-  fill(c);
-  translate(v.x,v.y);
-  let del = PI/60;
-  for (i=0;i<m;i++){
-    r.rotate(del)
-    circle(r.x,r.y, d);
-  }
-  pop();
-}
