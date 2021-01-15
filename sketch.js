@@ -1,15 +1,70 @@
 function setup() {
   createCanvas(700,700); // make an HTML canvas element width x height pixels
-  console.log(frameRate())
 }
 let prev = -1 // used to print minute() everytime minute changes
 
 function draw() {
-  // colors
-  let bg_color = '#000000'
-  let sec_color = '#006400'
-  let min_color = '#008000'
-  let hr_color = '#9ef01a'
+  // AM colors
+  
+  //sun palette
+  let bg_color = '#200' 
+  let sec_color = '#e85d04'
+  let min_color = '#f48c06'
+  let hr_color = '#9d0208'
+  
+  // palette
+  // let bg_color = '#2d00f7' 
+  // let sec_color = '#f20089'
+  // let min_color = '#ff8800'
+  // let hr_color = '#16db93'
+  
+  // let bg_color = 200
+  // let sec_color = 'blue'
+  // let min_color = 'red'
+  // let hr_color = 'yellow'
+  
+  // green palette
+  // let bg_color = '#000000'
+  // let sec_color = '#006400'
+  // let min_color = '#008000'
+  // let hr_color = '#9ef01a'
+  
+  // earth palette
+  // let bg_color = '#000000'
+  // let sec_color = '#562c2c'
+  // let min_color = '#f5dfbb'
+  // let hr_color = '#f2542d'
+  
+  // PM colors
+  // neon palette
+    // bg_color = '#000000'
+    // sec_color = '#78ff15'
+    // min_color = '#00fff7'
+    // hr_color = '#df1bcb'
+  
+  // magblue palette
+    // bg_color = '#000000'
+    // sec_color = '#4cc9f0'
+    // min_color = '#480ca8'
+    // hr_color = '#f72585'
+  
+  // moon palette 
+    // bg_color = '#000000'
+    // sec_color = '#f2f2f2'
+    // min_color = '#a5a5a5'
+    // hr_color = '#595959'
+  
+  if (hour()>=12){
+    // green palette
+    bg_color =  'black'
+    sec_color = '#006400'
+    min_color = '#008000'
+    hr_color = '#9ef01a'
+  }
+  stroke(bg_color)
+ 
+  
+  
   // ratio of radius of concentric cirles
   let sec_rad_ratio = 4/6; 
 
@@ -23,13 +78,14 @@ function draw() {
   background(bg_color);
 
   //original clock for debugging
-  textSize(32);
-  fill(180);
-  text(hour(), 10, 30);
-  fill(100);
-  text(minute(), 10, 60);
-  fill(50);
-  text(second(), 10, 90);
+  // textSize(32);
+  // fill(180);
+  // text(hour(), 10, 30);
+  // fill(100);
+  // text(minute(), 10, 60);
+  // fill(50);
+  // text(second(), 10, 90);
+  
   // print minute() everytime minute changes
   let t = minute();
   if (t !== prev){
@@ -116,3 +172,14 @@ function drawball(v,r,c,d){
   
 }
 
+function drawmins(v,r,c,d,m){
+  push();
+  fill(c);
+  translate(v.x,v.y);
+  let del = PI/60;
+  for (i=0;i<m;i++){
+    r.rotate(del)
+    circle(r.x,r.y, d);
+  }
+  pop();
+}
